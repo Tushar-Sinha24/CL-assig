@@ -9,7 +9,7 @@ module.exports.createUser = (req,res)=>{
         if(!body.email.match(regex)){
             return res.status(400).json({
                 success:false,
-                message :'Something went wrong'
+                message :'enter valid email'
             })
         }
         create(body , (err, result)=>{
@@ -26,4 +26,6 @@ module.exports.createUser = (req,res)=>{
             })
         });
 }
+
+
 
