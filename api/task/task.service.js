@@ -12,8 +12,8 @@ module.exports.taskCreate=(data,callback)=>{
 }
 
 module.exports.taskUpdate=(data,taskId,callback)=>{
-    console.log(data)
-    connectDB.query(`update task set '${data}' WHERE id=?`,
+   if(data.title && data.dueDate ){
+    connectDB.query(`update task set title ='${data.title}', dueDate='${data.dueDate}'  WHERE id=?`,
     [taskId],
     (error , results , fields) =>{
         if(error){
@@ -22,6 +22,29 @@ module.exports.taskUpdate=(data,taskId,callback)=>{
         return callback(null,results)    
     }
     );
+   }
+   else if(data.title){
+    connectDB.query(`update task set title ='${data.title}' WHERE id=?`,
+    [taskId],
+    (error , results , fields) =>{
+        if(error){
+            return callback(error);
+        }
+        return callback(null,results)    
+    }
+    );
+   }
+   else if(data.dueDate){
+    connectDB.query(`update task set date ='${data.dueDate}' WHERE id=?`,
+    [taskId],
+    (error , results , fields) =>{
+        if(error){
+            return callback(error);
+        }
+        return callback(null,results)    
+    }
+    );
+   }
 }
 
 module.exports.taskDelete=(taskId,callback)=>{

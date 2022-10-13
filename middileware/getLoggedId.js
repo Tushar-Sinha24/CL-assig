@@ -18,7 +18,7 @@ module.exports.protect = async (req, res, next) => {
         console.log(decoded);
 
         req.user= decoded.id;
-
+        next();
     } catch (error) {
         console.log(error)
         return res.status(401).json('Not authorized to ascess thos route')

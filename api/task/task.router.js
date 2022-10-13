@@ -1,4 +1,4 @@
-const {createTask, updateTask , deleteTask , getTask} = require('./task.controller');
+const {createTask , deleteTask , getTask , updateTask} = require('./task.controller');
 const router = require('express').Router(); 
 const multer =require('multer')
 
