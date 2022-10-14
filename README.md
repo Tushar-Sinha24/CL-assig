@@ -5,8 +5,8 @@ NODE_ENV=
 PORT= NODE PORT
 MYSQL_PORT= MYSQL PORT
 MYSQL_PASSWORD= '******'
-MYSQL_HOST= '@host'
-MYSQL_USER= '@user'
+MYSQL_HOST= 'localhost'
+MYSQL_USER= 'root'
 MYSQL_DATABASE= '@db'
 
 
